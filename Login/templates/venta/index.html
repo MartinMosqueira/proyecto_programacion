@@ -1,0 +1,32 @@
+{% extends 'estructura.html' %}
+{% block contenido %}
+    <div>Opciones</div>
+    <div>
+        <span><a href="crear">Crear</a><br></span>
+    </div>
+    <h3>Ventas</h3>
+    {% if ventas|length < 1 %}
+    <h4 style="text-align: center">Aun no hay ventas. Crea una!</h4>
+    {% else %}
+    <table>
+        <thead>
+            <td>Num</td>
+            <td>| ID</td>
+            <td>| Monto</td>
+            <td>| Actualizar</td>
+            <td>| Eliminar</td>
+        </thead>
+        <tbody>
+        {% for venta in ventas %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ venta.id }}</td>
+                <td>{{ venta.monto}}</td>
+                <td><a href="update?id={{ venta.id }}">Actualizar</a></td>
+                <td><a href="delete?id={{ venta.id }}">Eliminar</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock %}

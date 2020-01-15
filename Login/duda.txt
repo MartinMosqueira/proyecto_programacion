@@ -1,0 +1,3 @@
+Error en mostrar ventas en la misma persona pero distintas tarjetas de credito
+tokens
+Si borro persona, no se borran las tarjetas que dependan de esa persona.

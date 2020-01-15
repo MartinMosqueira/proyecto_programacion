@@ -1,0 +1,8 @@
+{% extends 'estructura.html' %}
+{% block contenido %}
+    <form method="POST" action="/persona/update?id={{persona.id}}" enctype='multipart/form-data'>
+        Nuevo nombre: <input type="text" name="nombre" value="{{persona.nombre}}"><br>
+        Nuevo apellido: <input type="text" name="apellido" value="{{persona.apellido}}"><br>
+      <input type="submit" value="Actualizar">
+    </form>
+{% endblock %}

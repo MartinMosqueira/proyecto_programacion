@@ -1,0 +1,7 @@
+{% extends 'estructura.html' %}
+{% block contenido %}
+    <form method="POST" action="/venta/update?id={{venta.id}}" enctype='multipart/form-data'>
+        Nuevo monto: <input type="text" name="monto" value="{{venta.monto}}">
+        <input type="submit" value="Actualizar">
+    </form>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'estructura.html' %}
+{% block contenido %}
+    <div>Opciones</div>
+    <div>
+        <span><a href="crear">Crear</a><br></span>
+    </div>
+    <h3>Personas</h3>
+    {% if personas|length < 1 %}
+    <h4 style="text-align: center">Aun no hay personas. Crea una!</h4>
+    {% else %}
+    <table>
+        <thead>
+            <td>Num</td>
+            <td>| ID</td>
+            <td>| Nombre</td>
+            <td>| Apellido</td>
+            <td>| Detalles</td>
+            <td>| Actualizar</td>
+            <td>| Eliminar</td>
+        </thead>
+        <tbody>
+        {% for persona in personas %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ persona.id }}</td>
+                <td>{{ persona.nombre }}</td>
+                <td>{{ persona.apellido }}</td>
+                <td><a href="detalle?id={{ persona.id }}">Detalles</a></td>
+                <td><a href="update?id={{ persona.id }}">Actualizar</a></td>
+                <td><a href="delete?id={{ persona.id }}">Eliminar</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock %}

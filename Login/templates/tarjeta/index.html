@@ -1,0 +1,44 @@
+{% extends 'estructura.html' %}
+{% block contenido %}
+    <div>Opciones</div>
+    <div>
+        <span><a href="crear">Crear</a><br></span>
+    </div>
+    <h3>Tarjetas</h3>
+    {% if tarjetas|length < 1 %}
+    <h4 style="text-align: center">Aun no hay tarjetas. Crea una!</h4>
+    {% else %}
+    <table>
+        <thead>
+            <td>Num</td>
+            <td>| ID</td>
+            <td>| Tipo</td>
+            <td>| Numero</td>
+            <td>| Cod.Seguridad</td>
+            <td>| Mes</td>
+            <td>| Año</td>
+            <td>| Monto Maximo</td>
+            <td>| Detalles</td>
+            <td>| Actualizar</td>
+            <td>| Eliminar</td>
+        </thead>
+        <tbody>
+        {% for tarjeta in tarjetas %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ tarjeta.id }}</td>
+                <td>{{ tarjeta.tipo}}</td>
+                <td>{{ tarjeta.numero }}</td>
+                <td>{{ tarjeta.cods }}</td>
+                <td>{{ tarjeta.mes }}</td>
+                <td>{{ tarjeta.año }}</td>
+                <td>{{ tarjeta.montomax }}</td>
+                <td><a href="detalle?id={{ tarjeta.id }}">Detalles</a></td>
+                <td><a href="update?id={{ tarjeta.id }}">Actualizar</a></td>
+                <td><a href="delete?id={{ tarjeta.id }}">Eliminar</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock %}

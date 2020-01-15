@@ -1,0 +1,17 @@
+{% extends 'estructura.html' %}
+{% block contenido %}
+    <form method="POST" action="/tarjeta/crear" enctype='multipart/form-data'>
+      Tipo: <input type="text" name="tipo"><br>
+      Numero: <input type="text" name="numero"><br>
+      Cod.Seguridad: <input type="text" name="cods"><br>
+      Mes: <input type="text" name="mes"><br>
+      Año: <input type="text" name="año"><br>
+      Monto Maximo: <input type="text" name="montomax"><br>
+      Personas: <select name="personas" multiple>
+        {% for persona in personas %}
+            <option value="{{ persona.id }}">{{ persona.apellido }}, {{ persona.nombre }}</option>
+        {% endfor %}
+    </select>
+      <input type="submit" value="Agregar">
+    </form>
+{% endblock %}

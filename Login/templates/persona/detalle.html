@@ -1,0 +1,65 @@
+{% extends 'estructura.html' %}
+{% block contenido %}
+    <h2>Detalle de la Persona</h2>
+    <table>
+        <tbody>
+            <tr>
+                <td>ID: </td><td>{{ persona.id }}</td>
+            </tr>
+            <tr>
+                <td>Nombre: </td><td>{{ persona.nombre }}</td>
+            </tr>
+            <tr>
+                <td>Apellido: </td><td>{{ persona.apellido }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Detalle de las Tarjetas</h2>
+    <table>
+        <tbody>
+        {% for tarjeta in persona.tarjetas %}
+            <tr>
+                <tr>
+                    <td>ID: </td><td>{{ tarjeta.id }} </td>
+                </tr>
+                <tr>
+                <td>Tipo: </td><td>{{ tarjeta.tipo }} </td>
+                </tr>
+                <tr>
+                <td>Numero: </td><td>{{ tarjeta.numero }} </td>
+                </tr>
+                <tr>
+                <td>Cod.Seguridad: </td><td>{{ tarjeta.cods }} </td>
+                </tr>
+                <tr>
+                <td>Mes: </td><td>{{ tarjeta.mes }} </td>
+                </tr>
+                <tr>
+                <td>Año: </td><td>{{ tarjeta.año }} </td>
+                </tr>
+                <tr>
+                <td>Monto Maximo: </td><td>{{ tarjeta.montomax }} </td>
+                </tr>
+                <td>-----------------------------------------</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <h2>Detalle de las Ventas</h2>
+    <table>
+        <tbody>
+        {% for venta in tarjeta.ventas2 %}
+            <tr>
+                <tr>
+                <td>ID: </td><td>{{ venta.id }} </td>
+                </tr>
+                <tr>
+                <td>Monto: </td><td>{{ venta.monto }} </td>
+                </tr>
+                <td>-----------------------------------------</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
