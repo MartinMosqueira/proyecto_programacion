@@ -7,7 +7,11 @@
     <meta name="author" content="">
 
     <title>Tienda UM</title>
+
+    <!-- Bootstrap core CSS -->
     <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
     <link href="{{ url_for('static', filename='narrow-jumbotron.css') }}" rel="stylesheet">
   </head>
 
@@ -18,7 +22,7 @@
         <nav>
           <ul class="nav nav-pills float-right">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Inicio <span class="sr-only">(current)</span></a>
+              <a class="nav-link active" href="#">Tienda UM <span class="sr-only">(current)</span></a>
             </li>
           </ul>
         </nav>
@@ -30,11 +34,11 @@
         <p class="lead">Cómprala por $99!</p>
         <form action="{{ url_for('pay') }}" method="POST">
           <script
-            src=""" class="stripe-button"
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="{{ pub_key }}"
             data-amount="9900"
-            data-name="Demo Site"
-            data-description="Widget"
+            data-name="TIENDA UM "
+            data-description="Programacion I"
             data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
             data-locale="auto">
           </script>
@@ -42,7 +46,7 @@
       </div>
 
       <footer class="footer">
-        <p>&copy; Tienda UM 2019</p>
+        <p>&copy; Tienda UM 2020 - Martin Mosqueira - Rodrigo Alvarez</p>
       </footer>
 
     </div> <!-- /container -->
