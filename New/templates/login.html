@@ -1,13 +1,16 @@
 {% block body %}
+<link href="{{ url_for('static', filename='login.css') }}" rel="stylesheet">
 {% if session['logged_in'] %}
 
 You're logged in already!
 
 {% else %}
-<form action="/login" method="POST">
-  <input type="username" name="username" placeholder="Username">
-<input type="password" name="password" placeholder="Password">
-<input type="submit" value="Log in">
-</form>
+<section class="registro">
+  <form action="/login" method="POST">
+    <input class="controles" type="username" name="username" placeholder="Username">
+  <input class="controles" type="password" name="password" placeholder="Password">
+  <input class="controles" type="submit" value="Log in">
+  </form>
+</section>
 {% endif %}
 {% endblock %}
