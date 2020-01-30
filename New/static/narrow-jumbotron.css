@@ -2,7 +2,9 @@
 body {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  background: #232F3F;
+  background-image: url('fondo2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -28,7 +30,7 @@ body {
 /* Custom page footer */
 .footer {
   padding-top: 1.5rem;
-  color: rgb(33, 37, 41);
+  color: #414D59;
   border-top: .05rem solid #e5e5e5;
 }
 
@@ -36,7 +38,8 @@ body {
 @media (min-width: 48em) {
   .container {
     max-width: 46rem;
-    background: #F99621;
+    background: #24303c;
+    box-shadow: 7px 13px 37px #000;
   }
 }
 .container-narrow > hr {
@@ -79,3 +82,16 @@ body {
     border-bottom: 0;
   }
 }
+
+.nav-pills .nav-link.active, .show > .nav-pills .nav-link{
+  padding: 12px;
+  transition-property: background-color, color, border;
+  
+}
+
+.nav-pills .nav-link.active, .show > .nav-pills .nav-link:hover{
+  background-color: transparent;
+  color: #fff;
+  border: 3px solid #fff;
+}
+
