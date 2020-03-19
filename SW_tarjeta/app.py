@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+<<<<<<< HEAD
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/database.db'
@@ -17,7 +18,7 @@ def tarjeta():
     tarjetas = Tarjeta.query.all()
     return render_template("index.html", tarjetas=tarjetas)
 
-@app.route('/crear', methods=['POST'])
+@app.route('/tarjeta', methods=['POST'])
 def crear():
     tarjeta = Tarjeta(tipo = request.form['tipo'], numero = request.form['numero'], cods = request.form['cods'] )
     db.session.add(tarjeta)
