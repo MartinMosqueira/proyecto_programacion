@@ -1,0 +1,18 @@
+<form method="POST" action="/crear" enctype='multipart/form-data'>
+    Tipo: <input type="text" name="tipo" autofocus><br>
+    Numero: <input type="text" name="numero"><br>
+    Cod.Seguridad: <input type="text" name="cods"><br>
+  </select>
+    <input type="submit" value="Agregar">
+  </form>
+
+  <ul>
+    {% for tarjeta in tarjetas %}
+    <li>
+      {{tarjeta.tipo}}
+      {{tarjeta.numero}}
+      {{tarjeta.cods}}
+      <a href="/eliminar/{{tarjeta.id}}">Eliminar</a>
+    </li>
+    {% endfor %}
+  </ul>
