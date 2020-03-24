@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_sqlalchemy import SQLAlchemy
+import jwt
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/database.db'
 db = SQLAlchemy(app)
-
+    
 class Tarjeta(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     tipo = db.Column(db.String(15))
@@ -30,6 +31,12 @@ def eliminar(id):
     db.session.commit()
     return redirect(url_for('tarjeta'))
 
+#terminar
+@app.route('/actualizar/<id>')
+def actualizar(id):
+    tarjeta = Tarjeta.query.filter_by(id=int(id)).first()
+    db.session.commit()
+    return redirect(url_for('tarjeta'))
 
 
 if __name__ == '__main__':
