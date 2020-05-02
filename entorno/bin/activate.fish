@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/martinmosqueira/Documentos/GitHub/proyecto_programacion/entorno"
+set -gx VIRTUAL_ENV "/home/martin/Documentos/GitHub/proyecto_programacion/entorno"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
@@ -52,7 +52,7 @@ if test -z "$VIRTUAL_ENV_DISABLE_PROMPT"
         set -l old_status $status
 
         # Prompt override?
-        if test -n "(entorno) "            
+        if test -n "(entorno) "
             printf "%s%s" "(entorno) " (set_color normal)
         else
             # ...Otherwise, prepend env
