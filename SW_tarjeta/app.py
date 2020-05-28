@@ -7,7 +7,7 @@ from functools import wraps
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'thisisthesecretkey'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/database1.db'
 db = SQLAlchemy(app)
 
 def token_required(f):
@@ -33,17 +33,18 @@ class Tarjeta(db.Model):
     tipo = db.Column(db.String(15))
     numero = db.Column(db.Integer)
     cods = db.Column(db.Integer)
+    ven = db.Column(db.Integer)
 
 
 @app.route('/tarjeta')
-@token_required
+#@token_required
 def tarjeta():
     tarjetas = Tarjeta.query.all()
     return render_template("index.html", tarjetas=tarjetas)
 
 @app.route('/tarjeta', methods=['POST'])
 def crear():
-    tarjeta = Tarjeta(tipo = request.form['tipo'], numero = request.form['numero'], cods = request.form['cods'] )
+    tarjeta = Tarjeta(tipo = request.form['tipo'], numero = request.form['numero'], cods = request.form['cods'], ven = request.form['ven'])
     db.session.add(tarjeta)
     db.session.commit()
     return redirect(url_for('tarjeta'))
@@ -66,7 +67,7 @@ def login():
     auth = request.authorization
 
     if auth and auth.password == 'password':
-        token = jwt.encode({'user' : auth.username, 'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=30)}, app.config['SECRET_KEY'])
+        token = jwt.encode({'user' : auth.username, 'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=50)}, app.config['SECRET_KEY'])
 
         return jsonify({'token' : token.decode('UTF-8')})
 

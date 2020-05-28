@@ -3,6 +3,7 @@
     Tipo: <input type="text" name="tipo" autofocus><br>
     Numero: <input type="text" name="numero"><br>
     Cod.Seguridad: <input type="text" name="cods"><br>
+    Vencimiento: <input type="text" name="ven"><br>
     <input type="submit" value="Agregar">
   </form>
 
@@ -12,6 +13,7 @@
       {{tarjeta.tipo}}
       {{tarjeta.numero}}
       {{tarjeta.cods}}
+      {{tarjeta.ven}}
       <a href="/eliminar/{{tarjeta.id}}">Eliminar</a>
       <a href="/actualizar">Actualizar</a>
     </li>
